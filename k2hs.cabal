@@ -1,0 +1,31 @@
+Name: k2hs
+Version: 0.0.1
+Synopsis: Haskell bindings for k2hash
+Category: Database
+Description: Haskell bindings for k2hash
+Author: Ryo Okubo
+Maintainer: syucream1031@gmail.com
+Homepage: https://github.com/syucream/k2hs
+
+License: MIT
+license-file: LICENSE
+Stability: experimental
+build-type: Simple
+
+Source-repository head
+  type: git
+  location: https://github.com/syucream/k2hs.git
+
+Library
+  hs-Source-Dirs: src
+  default-language: Haskell2010
+  Build-Depends: base
+  Build-Tools: hsc2hs
+
+  Exposed-Modules: Database.K2Hash
+  Other-Modules:
+
+  include-dirs: 
+  c-sources: 
+  extra-libraries: k2hash
+
