@@ -17,3 +17,6 @@ cabal.sandbox.config
 *.eventlog
 .stack-work/
 cabal.project.local
+
+# auto generated
+src/Database/*.hs
