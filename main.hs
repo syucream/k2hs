@@ -1,5 +1,6 @@
 import Database.K2Hash
 import Foreign.C.String
+import Foreign.Ptr
 
 main = do
     cpath <- newCString "/tmp/tmp.k2hash"
@@ -10,7 +11,9 @@ main = do
     let vallen = fromInteger $ toInteger $ length val
     ckey <- newCString key
     cval <- newCString val
-    result <- k2h_set_value handler ckey keylen cval vallen
+    setResult <- k2h_set_value handler ckey keylen cval vallen
+    cretval <- k2h_get_str_direct_value handler ckey
+    retval <- peekCString cval
     _ <- k2h_close handler
-    print $ result
+    print $ val
 
