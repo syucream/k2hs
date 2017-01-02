@@ -14,14 +14,17 @@ foreign import ccall safe "k2hash/k2hash.h k2h_open"
   k2h_open :: CString -> Bool -> Bool -> Bool -> Int -> Int -> Int -> CSize -> IO K2H_H
 
 foreign import ccall "k2hash/k2hash.h k2h_get_value"
-  k2h_get_value :: K2H_H -> CString -> CSize -> PPVal -> PSize -> IO Int
+  k2h_get_value :: K2H_H -> CString -> CSize -> PPVal -> PSize -> IO Bool
 
 foreign import ccall "k2hash/k2hash.h k2h_get_str_direct_value"
   k2h_get_str_direct_value :: K2H_H -> CString -> IO CString
 
 foreign import ccall safe "k2hash/k2hash.h k2h_set_value"
-  k2h_set_value :: K2H_H -> CString -> CSize -> CString -> CSize -> IO Int
+  k2h_set_value :: K2H_H -> CString -> CSize -> CString -> CSize -> IO Bool
+
+foreign import ccall safe "k2hash/k2hash.h k2h_set_str_value"
+  k2h_set_str_value :: K2H_H -> CString -> CString -> IO Bool
 
 foreign import ccall safe "k2hash/k2hash.h k2h_close"
-  k2h_close :: K2H_H -> IO Int
+  k2h_close :: K2H_H -> IO Bool
 
