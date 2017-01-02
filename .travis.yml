@@ -1,0 +1,3 @@
+language: haskell
+dist: trusty
+ghc: 7.8
